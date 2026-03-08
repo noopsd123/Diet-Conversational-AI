@@ -71,3 +71,35 @@ domain-specific dietary reasoning rather than generic health advice.
 
 ## Model Architecture
 
+Base Model : google/flan-t5-large
+Parameters : 750M
+Task Type : Seq2Seq (Text-to-Text Generation)
+Input : Dietary question (natural language prompt)
+Output : Nutritional advice response
+
+Before vs After Fine-Tuning
+Question: What is a good source of iron for a vegetarian?
+
+## Stage	Model Response
+Before (base)	
+"Iron can be found in adobe bricks and red paint."
+After (fine-tuned)	
+"Lentils, spinach, tofu, and fortified cereals are excellent iron sources for vegetarians."
+
+##  Project Structure
+diet-conversational-ai/
+│
+├── data/
+│   └── dietary_qa_dataset.json      # 100-entry curated Q&A dataset
+│
+├── notebooks/
+│   └── flan_t5_finetuning.ipynb     # Full training notebook
+│
+├── model/
+│   └── flan_t5_diet_finetuned/      # Saved model weights
+│
+├── logs/
+│   └── wandb/                       # W&B training run logs
+│
+├── requirements.txt
+└── README.md
